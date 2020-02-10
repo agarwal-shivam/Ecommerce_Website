@@ -9,13 +9,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/product.html'));
 });
 
-app.get('/wishlist',(req,res)=>{
+app.get('/wishlist', (req, res) => {
     res.sendfile('wishlist.html');
 })
-app.get('/Description',(req,res)=>{
+app.get('/Description', (req, res) => {
     res.sendfile('description.html');
 })
-app.get('/Description1',(req,res)=>{
+app.get('/Description1', (req, res) => {
     res.sendfile('description1.html');
 })
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/agarwal-shivam/Ecommerce_Website/issues"
   },
-  "homepage": "https://github.com/agarwal-shivam/Ecommerce_Website#readme",
   "dependencies": {
     "express": "^4.17.1",
     "pg": "^7.18.1",
@@ -33,5 +32,6 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "prettier": "^1.19.1"
-  }
+  },
+  "homepage": "https://github.com/agarwal-shivam/Ecommerce_Website#readme"
 }
