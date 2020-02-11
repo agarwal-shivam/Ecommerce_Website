@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 var port = 5000;
 var path = require('path');
+const pug = require('pug');
+// Compile the source code
+const compiledFunction = pug.compileFile('index.pug');
 const data = {
     "products": [
         {
@@ -28,9 +31,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/src/product.html'));
 });
 
-app.get('/wishlist', (req, res) => {
 
-    res.sendFile(path.join(__dirname + '/src/wishlist.html'));
+app.get('/wishlist', function (req, res) {
+    res.render('index', { title: 'Hey', message: 'Hello there!' })
 })
 app.get('/Description', (req, res) => {
     res.sendFile(path.join(__dirname + '/src/description.html'));
