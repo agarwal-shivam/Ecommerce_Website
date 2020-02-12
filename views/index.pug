@@ -1,15 +1,12 @@
 doctype html  
-html  
-    head  
-        title A simple pug example  
-    body  
-        h1 This page is produced by pug template engine  
-        p some paragraph here..
-
-//- server.js
-//- //set view engine  
-//- app.set("view engine","pug")  
-//- app.get('/', function (req, res) {  
-//- res.render('view.pug', index);  
-//-  res.render('index');  
-//- });
+html 
+body 
+    a(class='button' href='http://localhost:8000/wishlist') Go To Wishlist
+    img(src=path alt="camera" style='width:100px;height:100px;')
+    div Product Name:   #{name} 
+    div Product Description:   #{product_description}
+    div Seller:   #{sold_by}
+    div Price:   #{price}
+    div Warranty Details:   #{warranty_details}
+    button(onclick='setItem("' + id+ '")') ADD to LS
+    script(src='/sript.js')
