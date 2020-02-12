@@ -34,22 +34,17 @@ const data = {
 app.use(express.static('public'));
 
 app.get('/wishlist', (req, res) => {
-    res.render('index', data[0]);
+    res.render('wishlist', {});
 });
 
-var findProductByProductId = function (productId, callback) {
-    return callback(data[productId]);
-};
-
-app.get('/description/:productId', function (request, response) {
+app.get('/product/:productId', function (request, response) {
     var productId = request.params.productId;
-    findProductByProductId(productId, function (pro) {
-        return response.render('index', pro);
-    });
+
+    return response.render('description', data[productId]);
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/src/product.html'));
+    res.render('index', {});
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
