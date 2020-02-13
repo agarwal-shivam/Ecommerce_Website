@@ -44,8 +44,7 @@ app.get('/product/:productId', function (request, response) {
 });
 
 app.get('/', (req, res) => {
-    res.render('index', {});
+    res.render('index', data);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
