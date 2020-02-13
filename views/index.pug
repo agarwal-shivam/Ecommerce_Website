@@ -1,4 +1,9 @@
 doctype html  
 html 
 body 
-    div This is the landing page
+
+    each index,val in data        
+        a(href='http://localhost:8000/product/'+ index.id)
+            img(src=index.path alt="camera" style='width:100px;height:100px;')
+        div Product Name:   #{index.name}
+        div Price:   #{index.price}

@@ -26,7 +26,7 @@ const data = {
         "price": "200",
         "warranty_details": "1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase",
         "path": "/camera.jpg",
-        "id": "product22"
+        "id": "product2"
     }
 
 };
@@ -44,7 +44,7 @@ app.get('/product/:productId', function (request, response) {
 });
 
 app.get('/', (req, res) => {
-    res.render('index', data);
+    res.render('index', { data });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
