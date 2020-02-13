@@ -1,4 +1,9 @@
 doctype html  
 html 
 body 
-    div THIS IS THE LANDING PAGE
+
+    each index,val in data        
+        a(href='/product/'+ index.id)
+            img(src=index.path alt="camera" style='width:100px;height:100px;')
+        div Product Name:   #{index.name}
+        div Price:   #{index.price}

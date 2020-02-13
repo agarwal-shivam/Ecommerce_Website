@@ -40,12 +40,11 @@ app.get('/wishlist', (req, res) => {
 app.get('/product/:productId', function (request, response) {
     var productId = request.params.productId;
 
-    return response.render('description', data[productId]);
+    return response.render('product', data[productId]);
 });
 
 app.get('/', (req, res) => {
-    res.render('index', {});
+    res.render('index', { data });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
