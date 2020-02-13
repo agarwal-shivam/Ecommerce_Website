@@ -40,7 +40,7 @@ app.get('/wishlist', (req, res) => {
 app.get('/product/:productId', function (request, response) {
     var productId = request.params.productId;
 
-    return response.render('description', data[productId]);
+    return response.render('product', data[productId]);
 });
 
 app.get('/', (req, res) => {
