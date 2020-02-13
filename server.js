@@ -34,7 +34,7 @@ const data = {
 app.use(express.static('public'));
 
 app.get('/wishlist', (req, res) => {
-    res.render('wishlist', {});
+    res.render('wishlist', { data });
 });
 
 app.get('/product/:productId', function (request, response) {
