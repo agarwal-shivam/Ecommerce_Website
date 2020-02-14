@@ -1,13 +1,14 @@
 doctype html  
 html 
 body 
-    a(href='/wishlist')
-        button(type="button") Go To Wishlist
+    a(href='/')
+        h1 GO TO HOMEPAGE 
     img(src=path alt="camera" style='width:100px;height:100px;')
     div Product Name:   #{name} 
     div Product Description:   #{product_description}
     div Seller:   #{sold_by}
     div Price:   #{price}
     div Warranty Details:   #{warranty_details}
-    button() ADD TO WISHLIST
+    a(href='/wishlist/'+ id)
+        button(type="button") ADD TO WISHLIST
 

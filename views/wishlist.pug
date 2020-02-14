@@ -1,12 +1,12 @@
 doctype html  
 html 
 body 
-    h1 WISHLIST ITEMS
-    each index,val in data        
+    a(href='/')
+        h1 GO TO HOMEPAGE   
+    h2  WISHLIST ITEMS
+    each index,val in d       
         a(href='/product/'+ index.id)
             img(src=index.path alt="camera" style='width:100px;height:100px;')
         div Product Name:   #{index.name}
         div Price:   #{index.price} 
-        a(href='/wishlist')
-            button() REMOVE from wishlist
         h2        
