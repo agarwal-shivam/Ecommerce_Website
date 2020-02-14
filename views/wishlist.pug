@@ -2,9 +2,9 @@ doctype html
 html 
 body 
     a(href='/')
-        h1 GO TO HOMEPAGE   
+        button(type="button") GO TO HOMEPAGE   
     h2  WISHLIST ITEMS
-    each index,val in d       
+    each index,val in wishlistdata       
         a(href='/product/'+ index.id)
             img(src=index.path alt="camera" style='width:100px;height:100px;')
         div Product Name:   #{index.name}

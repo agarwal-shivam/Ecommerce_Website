@@ -1,13 +1,17 @@
+//Express server setup
 var express = require('express');
 var app = express();
 var port = 8000;
 var path = require('path');
+
+//pug template setup
 const pug = require('pug');
 app.set('view engine', 'pug');
 app.set("views", path.join(__dirname, "views"));
 
+//JSON dataset of all the products 
 const data = {
-    product1:
+    "product1":
     {
         "name": "OPPO A7 (Glaze Blue, 3GB RAM, 64GB Storage)",
         "product_description": "A7 adopts the industry-first water drop screen design, backed by several technological advances, reflecting nature like a water droplet on the verge of dropping. Corning glass supports an 88.4 percent screen ratio, providing resistance to scratches",
@@ -18,7 +22,7 @@ const data = {
         "id": "product1"
 
     },
-    product2: {
+    "product2": {
         "name": "camera",
         "product_description": "All camera users, even beginners, will be able to capture amazing images and movies with this DSLR camera",
         "delivery_by": "Wed",
@@ -34,20 +38,25 @@ const data = {
 
 
 app.use(express.static('public'));
-let d = {};
 
+//Object to store items in wishlist
+let wishlistdata = {};
+
+//wishlist page routing setup
 app.get('/wishlist/:productId', (req, res) => {
     var productId = req.params.productId;
-    d[productId] = data[productId];
-    return res.render('wishlist', { d });
+    wishlistdata[productId] = data[productId];
+    return res.render('wishlist', { wishlistdata });
 });
 
+//product page routing setup
 app.get('/product/:productId', function (request, response) {
     var productId = request.params.productId;
 
     return response.render('product', data[productId]);
 });
 
+//homepage routing setup
 app.get('/', (req, res) => {
     res.render('index', { data });
 });
