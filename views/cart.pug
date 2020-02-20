@@ -1,30 +1,29 @@
 doctype html  
 html 
 head
-    title=wishlist
-
-    script(type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js")
-    script(src='ajax.js')
+    title=cart
 body 
     include ./header.pug
-    h3  WISHLIST ITEMS
+    h3  CART ITEMS
     .container
         .row
             .col-1
             .col-12
                 .card-decks
-                    each index,val in wishlistdata
+                    each index,val in cartdata
                         .card
                             .row
                                 .col
                                     .card-header.bg-white
                                         a(href='/product/'+ index.id)
                                             img.card-img-top(src=index.path alt="camera" style='width:200px;height:200px;')
-                                .col 
+                                .col
                                     .card-body
+
                                         ul
                                             li Product Name:   #{index.name}
                                             li Price:   #{index.price} 
-                                        a.btn.btn-primary.bg-dark.text-white.border.dark(id=index.id value=index.id) ADD TO CART
+                                        a.btn.btn-primary.bg-dark.text-white.border-dark(href='/buy_now') BUY NOW
+
                         .card.border-white(style='height: 1rem;')
 
