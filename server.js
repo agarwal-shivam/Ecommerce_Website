@@ -3,62 +3,80 @@ var express = require('express');
 var app = express();
 var port = 8000;
 var path = require('path');
+const data = require('./public/data.js');
 
-//pug template setup
-const pug = require('pug');
+//pug template setting
 app.set('view engine', 'pug');
-app.set("views", path.join(__dirname, "views"));
+app.set("views", 'views');
 
-//JSON dataset of all the products 
-const data = {
-    "product1":
-    {
-        "name": "OPPO A7 (Glaze Blue, 3GB RAM, 64GB Storage)",
-        "product_description": "A7 adopts the industry-first water drop screen design, backed by several technological advances, reflecting nature like a water droplet on the verge of dropping. Corning glass supports an 88.4 percent screen ratio, providing resistance to scratches",
-        "sold_by": "Appario Retail Private Ltd",
-        "price": "100",
-        "warranty_details": "1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase",
-        "path": "/phone.jpg",
-        "id": "product1"
-
-    },
-    "product2": {
-        "name": "camera",
-        "product_description": "All camera users, even beginners, will be able to capture amazing images and movies with this DSLR camera",
-        "delivery_by": "Wed",
-        "sold_by": "Appario Retail Private Ltd",
-        "price": "200",
-        "warranty_details": "1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase",
-        "path": "/camera.jpg",
-        "id": "product2"
-
-    }
-
-};
-
-
+//static folder declare
+app.use(express.static('images'));
 app.use(express.static('public'));
 
-//Object to store items in wishlist
+//Object to store items in wishlist,cart
 let wishlistdata = {};
-
-//wishlist page routing setup
-app.get('/wishlist/:productId', (req, res) => {
-    var productId = req.params.productId;
-    wishlistdata[productId] = data[productId];
-    return res.render('wishlist', { wishlistdata });
-});
-
-//product page routing setup
-app.get('/product/:productId', function (request, response) {
-    var productId = request.params.productId;
-
-    return response.render('product', data[productId]);
-});
+let cartdata = {};
 
 //homepage routing setup
 app.get('/', (req, res) => {
+    console.log('home');
     res.render('index', { data });
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+//wishlist data routing setup
+app.get('/wishlist/:productId', (req, res) => {
+    var productId = req.params.productId;
+    wishlistdata[productId] = data[productId];
+    res.sendStatus(200);
+});
+
+//wishlist page routing setup
+app.get('/wishlist', function (req, res) {
+    if (Object.keys(wishlistdata).length == 0) {
+        res.render('emptywishlist', {});
+    }
+    else {
+        res.render('wishlist', { wishlistdata })
+    }
+});
+
+//product page routing setup
+app.get('/product/:productId', function (req, res) {
+    var productId = req.params.productId;
+    console.log(productId);
+    res.render('product', data[productId]);
+    //res.sendStatus(200);
+});
+
+//cart data routing setup
+app.get('/cart/:productId', (req, res) => {
+    console.log('cart' + req.params.productId);
+    var productId = req.params.productId;
+    cartdata[productId] = data[productId];
+    //console.log(req.body);
+    res.send(cartdata);
+});
+
+//cart page routing setup
+app.get('/cart', function (req, res) {
+    console.log('cart');
+    if (Object.keys(cartdata).length == 0) {
+        res.render('emptycart', {});
+    }
+    else {
+        res.render('cart', { cartdata })
+    }
+});
+
+//buy now page routing setup
+app.get('/buy_now', function (req, res) {
+    res.send("Redirecting to the payment gateway...")
+});
+
+//invalid URL
+app.get('*', function (req, res) {
+    res.sendStatus('Sorry, this is an invalid URL.');
+});
+
+//port listening
+app.listen(port, () => console.log("Listening on port " + port));
