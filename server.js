@@ -12,6 +12,8 @@ app.set("views", 'views');
 //static folder declare
 app.use(express.static('images'));
 app.use(express.static('public'));
+app.use(express.static('views'));
+
 
 //Object to store items in wishlist,cart
 let wishlistdata = {};
@@ -21,6 +23,7 @@ let cartdata = {};
 app.get('/', (req, res) => {
     console.log('home');
     res.render('index', { data });
+    //res.sendFile('home.html');
 });
 
 //wishlist data routing setup
@@ -32,12 +35,13 @@ app.get('/wishlist/:productId', (req, res) => {
 
 //wishlist page routing setup
 app.get('/wishlist', function (req, res) {
-    if (Object.keys(wishlistdata).length == 0) {
-        res.render('emptywishlist', {});
-    }
-    else {
-        res.render('wishlist', { wishlistdata })
-    }
+    // if (Object.keys(wishlistdata).length == 0) {
+    //     res.render('emptywishlist', {});
+    // }
+    // else {
+    //     res.render('wishlist', { wishlistdata })
+    // }
+    res.send("wishlist.html");
 });
 
 //product page routing setup
@@ -60,12 +64,14 @@ app.get('/cart/:productId', (req, res) => {
 //cart page routing setup
 app.get('/cart', function (req, res) {
     console.log('cart');
-    if (Object.keys(cartdata).length == 0) {
-        res.render('emptycart', {});
-    }
-    else {
-        res.render('cart', { cartdata })
-    }
+    // if (Object.keys(cartdata).length == 0) {
+    //     res.render('emptycart', {});
+    // }
+    // else {
+    //     res.render('cart', { cartdata })
+    // }
+    //res.sendFile('path.join(__dirname + ' / public / cart.html')');
+    res.send("cart.html");
 });
 
 //buy now page routing setup

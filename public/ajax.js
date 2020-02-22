@@ -63,4 +63,33 @@ $(document).ready(() => {
             }
         });
     });
-});      
+    // $('#hwid').click(() => {
+    //     $(#containerid).load("test.html");
+    // });
+});
+
+function test(q) {
+    //$().load
+    var URL = q;
+    console.log(q);
+    console.log('function call was successful');
+    $.ajax({
+
+        url: URL,
+        type: 'GET',
+        dataType: 'html',
+        success: function (result) {
+            console.log('ajax call was successful');
+            $('#containerid').load(result);
+
+
+
+        }
+
+
+
+    });
+
+
+}
+
