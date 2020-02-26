@@ -3,54 +3,56 @@ html
 head
     title CATALOGUE
     script(type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js")
-    script(src='ajax.js')
+    script(src='sampleajax.js')
+    script(src='ajax1.js')
 body 
     include ./header.pug
-    H3 ELECTRONIC PRODUCTS
+
     .container(id='containerid')
-        .row
-            .col-1
-            .col-12
-                .row
+        p ELECTRONIC PRODUCTS
+            .row
+                .col-1
+                .col-12
+                    .row
 
-                    each index,val in data 
+                        each index,val in data 
 
 
-                        .card.text-left.text-black.bg-transparent.mb-3.border-dark.mb-3(style='width: 18rem;')
-                            .card-header.bg-white.border-dark
-                                .container 
+                            .card.text-left.text-black.bg-transparent.mb-3.border-dark.mb-3(style='width: 18rem;')
+                                .card-header.bg-white.border-dark
+                                    .container 
+                                        .row
+                                            .col-9
+                                                #carouselExampleSlidesOnly.carousel.slide(data-ride='carousel' data-intervel="1000")
+                                                    .carousel-inner(data-intervel="1000")
+                                                        .carousel-item.active
+
+                                                            a(href='/product/'+ index.id)
+                                                                img.card-img-top(src=index.path alt="camera" style='width:100%;height:100%;')
+                                                        .carousel-item
+                                                            a(href='/product/'+ index.id)
+                                                                img.card-img-top(src=index.path1 alt="camera" style='width:100%;height:100%;')
+                                                        .carousel-item
+                                                            a(href='/product/'+ index.id)
+                                                                img.card-img-top(src=index.path2 alt="camera" style='width:100%;height:100%;')
+                                            .col-1
+
+                                                img(class=index.id src='/wishlist.png' alt='...' style='width:25px;height:25px;')
+
+                                .card-body.border-dark      
+
+                                    ul.list-group.list-group-flush.border-dark
+                                        li.list-group-item.border-dark Product Name:   #{index.name}
+                                        li.list-group-item.border-dark Price:   #{index.price}
+                                        li.list-group-item
+
+                                .card-body.border-dark 
                                     .row
-                                        .col-9
-                                            #carouselExampleSlidesOnly.carousel.slide(data-ride='carousel' data-intervel="1000")
-                                                .carousel-inner(data-intervel="1000")
-                                                    .carousel-item.active
-
-                                                        a(href='/product/'+ index.id)
-                                                            img.card-img-top(src=index.path alt="camera" style='width:100%;height:100%;')
-                                                    .carousel-item
-                                                        a(href='/product/'+ index.id)
-                                                            img.card-img-top(src=index.path1 alt="camera" style='width:100%;height:100%;')
-                                                    .carousel-item
-                                                        a(href='/product/'+ index.id)
-                                                            img.card-img-top(src=index.path2 alt="camera" style='width:100%;height:100%;')
+                                        .col-5
+                                            a.btn.btn-primary.bg-dark.text-white.border-dark(id=index.id value=index.id) ADD TO CART
                                         .col-1
-
-                                            img(class=index.id src='/wishlist.png' alt='...' style='width:25px;height:25px;')
-
-                            .card-body.border-dark      
-
-                                ul.list-group.list-group-flush.border-dark
-                                    li.list-group-item.border-dark Product Name:   #{index.name}
-                                    li.list-group-item.border-dark Price:   #{index.price}
-                                    li.list-group-item
-
-                            .card-body.border-dark 
-                                .row
-                                    .col-5
-                                        a.btn.btn-primary.bg-dark.text-white.border-dark(id=index.id value=index.id) ADD TO CART
-                                    .col-1
-                                    .col-5
-                                        a.btn.btn-primary.bg-dark.text-white.border-dark(href='/buy_now') BUY NOW
-                        .card.border-white(style='width: 1rem;')
+                                        .col-5
+                                            a.btn.btn-primary.bg-dark.text-white.border-dark(href='/buy_now') BUY NOW
+                            .card.border-white(style='width: 1rem;')
 
 

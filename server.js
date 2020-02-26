@@ -33,6 +33,18 @@ app.get('/wishlist/:productId', (req, res) => {
     res.sendStatus(200);
 });
 
+//testing route to get the wishlist data
+app.get('/wishdata', (req, res) => {
+    console.log("wishlist route reached");
+    res.send(wishlistdata);
+});
+
+//testing route to get the cart data
+app.get('/cartdata', (req, res) => {
+    console.log("cart route reached");
+    res.send(cartdata);
+});
+
 //wishlist page routing setup
 app.get('/wishlist', function (req, res) {
     // if (Object.keys(wishlistdata).length == 0) {
@@ -72,6 +84,18 @@ app.get('/cart', function (req, res) {
     // }
     //res.sendFile('path.join(__dirname + ' / public / cart.html')');
     res.send("cart.html");
+});
+
+app.get('/card', function (req, res) {
+    console.log('card');
+    // if (Object.keys(cartdata).length == 0) {
+    //     res.render('emptycart', {});
+    // }
+    // else {
+    //     res.render('cart', { cartdata })
+    // }
+    //res.sendFile('path.join(__dirname + ' / public / cart.html')');
+    res.send("card.html");
 });
 
 //buy now page routing setup
