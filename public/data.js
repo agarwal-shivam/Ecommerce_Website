@@ -1,5 +1,5 @@
 const data = {
-    'product1':
+    product1:
     {
         "name": "OPPO A7 (Glaze Blue, 3GB RAM, 64GB Storage)",
         "product_description": "A7 adopts the industry-first water drop screen design, backed by several technological advances, reflecting nature like a water droplet on the verge of dropping. Corning glass supports an 88.4 percent screen ratio, providing resistance to scratches",
@@ -12,7 +12,7 @@ const data = {
         "id": "product1"
 
     },
-    'product2': {
+    product2: {
         "name": "camera",
         "product_description": "All camera users, even beginners, will be able to capture amazing images and movies with this DSLR camera",
         "delivery_by": "Wed",

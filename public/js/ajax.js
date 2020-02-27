@@ -3,6 +3,10 @@ function makeAPICall(url, type, dataType) {
     url,
     async: false,
     type,
-    dataType
+    dataType,
+    success: function (result) {
+      console.log("ajax call completed" + result);
+      console.log(typeof (result));
+    }
   });
 }

@@ -1,6 +1,6 @@
 nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
     a.navbar-brand()
-        img.d-inline-block.align-top(src='./ecom1.jpg' width='30' height='30' alt='') 
+        img.d-inline-block.align-top(src='./images/ecom1.jpg' width='30' height='30' alt='') 
 
     .container
         .container
@@ -9,15 +9,15 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
             .row
                 .col-4
 
-                    a.navbar-brand.text-white(href='/')
+                    a.navbar-brand.text-white(id ='home' onclick='page(id);')
                         span.glyphicon.glyphicon-user
                             |  HOMEPAGE
                 .col-4
-                    a.navbar-brand.text-white(id='wishlist' onclick='ajax1(id);')
+                    a.navbar-brand.text-white(id='wishlist' onclick='page(id);')
                         span.glyphicon.glyphicon-user
                             |  WISHLIST
                 .col-3
-                    a.navbar-brand.text-white(id='cart' onclick='test1(id);')
+                    a.navbar-brand.text-white(id='cart' onclick='page(id);')
                         span.glyphicon.glyphicon-user
                             |  CART
 
