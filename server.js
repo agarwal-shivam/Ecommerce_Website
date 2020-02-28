@@ -68,10 +68,10 @@ app.get('/', (req, res) => {
 
 
 //product page routing setup
-app.get('/product/:productId', function (req, res) {
+app.get('/api/:productId', function (req, res) {
     var productId = req.params.productId;
     console.log(productId);
-    res.render('product', data[productId]);
+    res.send(data[productId]).status(200);
     //res.sendStatus(200);
 });
 

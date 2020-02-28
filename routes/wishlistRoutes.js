@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-let wishlistdata = { wishlistkey: 'wishlistvalue' };
+let wishlistdata = {};
 var data = require('../public/data.js');
 
 // router.post()

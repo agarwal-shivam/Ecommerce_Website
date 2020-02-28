@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-let cartdata = { cartkey: 'cartvalue' };
+let cartdata = {};
 var data = require('../public/data.js');
 
 // router.get('/cartdata', (req, res) => {
