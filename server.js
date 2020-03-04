@@ -59,6 +59,8 @@ app.get('/buy_now', function (req, res) {
     res.send('Redirecting to the payment gateway...');
 });
 
+app.get('/favicon.ico', (req, res) => res.sendStatus(204));
+
 //invalid URL
 app.get('*', function (req, res) {
     res.sendStatus('Sorry, this is an invalid URL.');
