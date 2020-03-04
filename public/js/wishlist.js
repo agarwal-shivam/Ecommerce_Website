@@ -1,8 +1,8 @@
+'use strict';
 var fetchedData;
 $(document).ready(async () => {
   fetchedData = await getData('wishlist');
   let populateDATA = fetchedData => {
-
     var html = "";
     var keysArray = Object.keys(fetchedData);
     if (Object.keys(fetchedData).length == 0) {
@@ -20,26 +20,17 @@ $(document).ready(async () => {
       }
       $("#dataDiv2").append(html);
     }
-
   }
   await populateDATA(fetchedData);
+
 });
-$("#buttonid").click(() => {
-  alert("botton clicked");
-})
+// window.addEventListener('popstate', function (e) {
+//   console.log("popstateWishlist");
+//   if (e.state)
+//     page(e.state.pageName);
+// });
 $("#fetchedData.product1.id").click(() => {
   $("#fetchedData.product1.id").text("ADDED");
 })
-// let addToCartData = id => {
-//   console.log("ADDED");
-//   makeAPICall(`api/cart/${id}`, 'post', 'json');
-//   $("#" + id).text("ADDED");
-// }
-// function openProductDescription(productId) {
-//   $("#dataDiv2").hide();
-//   $("#dataDiv1").text("PRODUCTDESCRIPTION OPENED" + productId);
-//   console.log(fetchedData[productId]);
-//   console.log(productId);
-//   console.log(fetchedData.product1.id);
-// }
+
 

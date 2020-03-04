@@ -1,3 +1,4 @@
+'use strict';
 var fetchedData;
 $(document).ready(async () => {
   fetchedData = await getData('cart');
@@ -6,7 +7,7 @@ $(document).ready(async () => {
     var html = "";
     var keysArray = Object.keys(fetchedData);
     if (Object.keys(fetchedData).length == 0) {
-      $("#dataDiv2").text("WISHLIST EMPTY");
+      $("#dataDiv2").text("CART EMPTY");
     }
     else {
       for (let i = 0; i < Object.keys(fetchedData).length; i++) {
@@ -20,14 +21,11 @@ $(document).ready(async () => {
       }
       $("#dataDiv2").append(html);
     }
-
   }
   await populateDATA(fetchedData);
 });
-$("#buttonid").click(() => {
-  alert("botton clicked");
-})
-$("#fetchedData.product1.id").click(() => {
-  $("#fetchedData.product1.id").text("ADDED");
-})
-//populateData(p);
+// window.addEventListener('popstate', function (e) {
+//   console.log("popstateCart");
+//   if (e.state)
+//     page(e.state.pageName);
+// });

@@ -3,26 +3,14 @@ const router = express.Router();
 let wishlistdata = {};
 var data = require('../public/data.js');
 
-// router.post()
 
-// router.get('/wishlist', function (req, res) {
-
-//     res.send(wishlist.html);
-// });
-//wishlist data routing setup
-// router.get('/wishlist/:productId', (req, res) => {
-//     var productId = req.params.productId;
-//     wishlistdata[productId] = data[productId];
-//     res.sendStatus(200);
-// });
-
-//testing route to get the wishlist data
+// route to get the wishlist data
 router.get('/api/wishlist', (req, res) => {
     console.log("wishlistData route hit");
-    // console.log('wishlist route reached');
     res.send(wishlistdata).status(200);
 });
 
+//route to post the wishlist data
 router.post('/api/wishlist/:id', (req, res) => {
 
     let id = req.params.id;
@@ -37,11 +25,7 @@ router.post('/api/wishlist/:id', (req, res) => {
     }
 });
 
-// router.put('api/wishlist/:id', (req, res) => {
-//     console.log('wishlist route reached');
-//     res.send(wishlistdata);
-// });
-
+//route to delete wishlist data
 router.delete('/api/wishlist/:id', (req, res) => {
     let id = req.params.id;
     let present = id in wishlistdata;
@@ -54,14 +38,4 @@ router.delete('/api/wishlist/:id', (req, res) => {
         res.sendStatus(204);
     }
 });
-
-
-
-//testing route to get the wishlist data
-// router.post('/wishdata', (req, res) => {
-//     console.log('wishlist route reached');
-//     //res.send(wishlistdata);
-//     res.send("post request");
-// });
-
 module.exports = router;

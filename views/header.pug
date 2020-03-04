@@ -1,23 +1,26 @@
-nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-dark
-    a.navbar-brand()
-        img.d-inline-block.align-top(src='./images/ecom1.jpg' width='30' height='30' alt='') 
 
-    .container
-        .container
-        .container#containerid1
-        .container
-            .row
-                .col-4
+nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
+    .col-1
+        img.align-left(src='./images/hamburgerMenu.png' width='30px' height='30px' id='menu')
+    .col-1-5.text-centre
 
-                    a.navbar-brand.text-white(id ='home' onclick='page(id);')
-                        span.glyphicon.glyphicon-user
-                            |  HOMEPAGE
-                .col-4
-                    a.navbar-brand.text-white(id='wishlist' onclick='page(id);')
-                        span.glyphicon.glyphicon-user
-                            |  WISHLIST
-                .col-3
-                    a.navbar-brand.text-white(id='cart' onclick='page(id);')
-                        span.glyphicon.glyphicon-user
-                            |  CART
+        a.navbar-brand.text-black(id ='home' onclick='goToPage(id);' style='cursor:pointer')
+            span.glyphicon.glyphicon-user
+                |  HOMEPAGE
+    .col-1.text-left
+        a.navbar-brand.text-black(id='wishlist' onclick='goToPage(id);' style='cursor:pointer')
+            span.glyphicon.glyphicon-user
+                |  WISHLIST
+    .col-6
+    .col-1
+        img.align-left(src='./images/searchIcon.png' width='25px' height='25px' id='searchIcon' style='cursor:pointer')
+    .col-1.text-right
 
+
+        img.align-right(src='./images/cartImage.jpg' width='30px' height='30px' id='cart' onclick='goToPage(id);' style='cursor:pointer')
+
+
+    .col-1.text-centre
+        a.navbar-brand.text-black.text-right(id='login' style='cursor:pointer')
+            span.glyphicon.glyphicon-user
+                |       LOGIN

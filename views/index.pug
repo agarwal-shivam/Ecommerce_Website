@@ -2,19 +2,19 @@ doctype html
 html 
 head
     title ECom App
-        meta(charset='utf-8')
+    meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
+    link(rel='icon' href='../colorpicker.gif' type="image/gif")
     script(type='text/javascript' src="http://code.jquery.com/jquery-3.3.1.min.js")
     script(src='js/ajax.js')
     script(src='js/route.js')
+    script(src='js/router.js')
 body 
     include ./header.pug
-    .container(id='mainContent')
+
+    .container.padding-0.spacing-0(id='mainContent')
         include ./home.pug
-
-
-
     script(
         src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' 
         integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy' 

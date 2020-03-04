@@ -3,31 +3,13 @@ const router = express.Router();
 let cartdata = {};
 var data = require('../public/data.js');
 
-// router.get('/cartdata', (req, res) => {
-//     console.log('cart route reached');
-//     res.send(cartdata);
-// });
-
-//cart data routing setup
-// router.get('/cart/:productId', (req, res) => {
-//     console.log('cart' + req.params.productId);
-//     var productId = req.params.productId;
-//     cartdata[productId] = data[productId];
-//     //console.log(req.body);
-//     res.send(cartdata);
-// });
-
-//cart page routing setup
-// router.get('/cart', function (req, res) {
-//     console.log('cart');
-//     res.send('cart.html').status(200);
-// });
-//testing route to get the wishlist data
+//route to get cart data
 router.get('/api/cart', (req, res) => {
     console.log('cartdata route reached');
     res.send(cartdata);
 });
 
+//route to post cart data
 router.post('/api/cart/:id', (req, res) => {
 
     let id = req.params.id;
@@ -42,11 +24,7 @@ router.post('/api/cart/:id', (req, res) => {
     }
 });
 
-// router.put('api/cart/:id', (req, res) => {
-//     console.log('wishlist route reached');
-//     res.send(wishlistdata);
-// });
-
+//route to delete cart data
 router.delete('/api/cart/:id', (req, res) => {
     let id = req.params.id;
     let present = id in cartdata;
@@ -59,8 +37,4 @@ router.delete('/api/cart/:id', (req, res) => {
         res.sendStatus(204);
     }
 });
-
-
-
-
 module.exports = router;
