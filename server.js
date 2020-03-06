@@ -4,6 +4,7 @@ var app = express();
 var port = 8000;
 var path = require('path');
 var data = require('./public/data.js');
+require('dotenv').config();
 //router calling
 const cartRoutes = require('./routes/cartRoutes.js');
 const wishlistRoutes = require('./routes/wishlistRoutes.js');
@@ -20,9 +21,9 @@ app.use(express.static('public'));
 app.use(express.static('views'));
 
 //Object to store items in wishlist,cart
-const homedata = { homedatakey: 'homedatavalue' };
-let wishlistdata = { wishlistkey: 'wishlistvalue' };
-let cartdata = { cartkey: 'cartvalue' };
+//const homedata = { homedatakey: 'homedatavalue' };
+//let wishlistdata = { wishlistkey: 'wishlistvalue' };
+//let cartdata = { cartkey: 'cartvalue' };
 //homepage routing setup
 app.get('/partials/:name', (req, res) => {
     const name = req.params.name;
