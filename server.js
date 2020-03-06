@@ -68,4 +68,4 @@ app.get('*', function (req, res) {
 });
 
 //port listening
-app.listen(process.env.PORT || 8000, '0.0.0.0', () => console.log('Listening on port ' + port));
+app.listen(process.env.PORT, () => console.log('Listening on port ' + port));
