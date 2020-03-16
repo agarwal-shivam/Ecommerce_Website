@@ -1,7 +1,7 @@
 
 nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
     .col-1
-        img.align-left(src='./images/hamburgerMenu.png' width='30px' height='30px' id='menu')
+        img.align-left(src='./images/hamburgerMenu.png' width='30px' height='30px' id='menu' onclick='ml()')
     .col-1-5.text-centre
 
         a.navbar-brand.text-black(id ='home' onclick='goToPage(id);' style='cursor:pointer')
@@ -11,7 +11,9 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
         a.navbar-brand.text-black(id='wishlist' onclick='goToPage(id);' style='cursor:pointer')
             span.glyphicon.glyphicon-user
                 |  WISHLIST
-    .col-6
+    .col-2
+    .col-3#name
+    .col-1#signout
     .col-1
         img.align-left(src='./images/searchIcon.png' width='25px' height='25px' id='searchIcon' style='cursor:pointer')
     .col-1.text-right
@@ -20,7 +22,5 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
         img.align-right(src='./images/cartImage.jpg' width='30px' height='30px' id='cart' onclick='goToPage(id);' style='cursor:pointer')
 
 
-    .col-1.text-centre
-        a.navbar-brand.text-black.text-right(id='login' style='cursor:pointer')
-            span.glyphicon.glyphicon-user
-                |       LOGIN
+    .col-1.text-centre()
+        a.navbar-brand.text-dark.text-right(id='login' style='cursor:pointer' class="g-signin2" data-onsuccess="onSignIn")
