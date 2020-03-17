@@ -12,8 +12,28 @@ $(document).ready(async () => {
       var price_fetch = fetchedData[keysArray[i]]['price'];
       var id_fetch = fetchedData[keysArray[i]]['id'];
       var seller_fetch = fetchedData[keysArray[i]]['sold_by'];
-      html += "<div class='col-5'>"
-      html += "<div class='card border-0' style='width: 22rem;'> <img class='card-img-center' src='" + path_fetch + "' id=" + id_fetch + " onclick='openProductDescription(id)' style='width:200px;height:200px;cursor:pointer'> <div class='card-body'><h5 class='card-title text-left'>" + name_fetch + "</h5><div class='row'><div class='col'><p class='card-text text-left' style='color:gray'>" + seller_fetch + "</p></div><div class='col'><div class='row'><h6 class='card-text text-right'>₹" + price_fetch + "</h6> </div> <div class='row'> <img src='./images/cartImage.jpg' id=" + id_fetch + " value=" + id_fetch + " onclick='addToCartData(id)' width='30px' height='30px' style='cursor:pointer'></img></div> </div> </div> </div> </div> </div>"
+      html += `
+      <div class='col-5'>
+        <div class='card border-0' style='width: 22rem;'> 
+          <img class='card-img-center' src='${path_fetch}"' id=" + id_fetch + " onclick='openProductDescription(id)' style='width:200px;height:200px;cursor:pointer'> 
+          <div class='card-body'>
+            <h5 class='card-title text-left'>" + name_fetch + "</h5>
+            <div class='row'>
+              <div class='col'>
+                <p class='card-text text-left' style='color:gray'>" + seller_fetch + "</p>
+              </div>
+            <div class='col'>
+              <div class='row'>
+                <h6 class='card-text text-right'>₹" + price_fetch + "</h6> 
+              </div> 
+              <div class='row'>
+                <img src='./images/cartImage.jpg' id=" + id_fetch + " value=" + id_fetch + " onclick='addToCartData(id)' width='30px' height='30px' style='cursor:pointer'></img>
+              </div> 
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>`
     }
     html += "</div>"
     $("#dataDiv2").append(html);
@@ -42,8 +62,11 @@ function addToCartData(id) {
 function openProductDescription(productId) {
   $("#dataDiv2").hide();
   $(".col-4").hide();
-  var html = "<script>window.history.pushState({},null,'productId')</script>";
-  var id_fetch = fetchedData[productId]['id'];
+  console.log({ fetchedData });
+  window.history.pushState({}, null, productId)
+
+  const productData = fetchedData[productId];
+  var id_fetch = ['id'];
   var path_fetch = fetchedData[productId]['path'];
   var path_fetch1 = fetchedData[productId]['path1'];
   var path_fetch2 = fetchedData[productId]['path2'];
