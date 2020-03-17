@@ -11,13 +11,9 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
         a.navbar-brand.text-black(id='wishlist' onclick='goToPage(id);' style='cursor:pointer')
             span.glyphicon.glyphicon-user
                 |  WISHLIST
-    .col-2
-    .col-3#name
-    .col-1
-        a.navbar-brand.text-dark.text-right(id='login' style='cursor:pointer' href='/logout' )
-            span.glyphicon.glyphicon-user
-                |  LOGOUT
-    .col-1
+
+    .col-4
+    .col-1.text-right
         img.align-left(src='./images/searchIcon.png' width='25px' height='25px' id='searchIcon' style='cursor:pointer')
     .col-1.text-right
 
@@ -25,7 +21,8 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
         img.align-right(src='./images/cartImage.jpg' width='30px' height='30px' id='cart' onclick='goToPage(id);' style='cursor:pointer')
 
 
-    .col-1.text-centre()
-        a.navbar-brand.text-dark.text-right(id='login' style='cursor:pointer' href='/auth/google' )
+    .col-1.text-centre
+        a.navbar-brand.text-dark.text-right(id='login' style='cursor:pointer' onclick='login();' href='/auth/google' )
             span.glyphicon.glyphicon-user
                 |  LOGIN
+    .col-2#userDetail

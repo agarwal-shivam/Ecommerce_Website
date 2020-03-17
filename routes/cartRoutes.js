@@ -8,10 +8,7 @@ router.get('/api/cart', (req, res) => {
     console.log('cartdata route reached');
     res.send(cartdata);
 });
-router.get('api/me', (req, res) => {
-    console.log(req);
-    res.send(req.session)
-});
+
 //route to post cart data
 router.post('/api/cart/:id', (req, res) => {
 

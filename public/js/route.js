@@ -26,3 +26,9 @@ const getData = dataName => {
   console.log('GETTING DATA: ', dataName);
   return makeAPICall(`/api/${dataName}`, 'get', 'json');
 };
+
+//login function
+async function login() {
+  //await makeAPICall(`/auth/google`, 'get');
+  await makeAPICall(`/ap/user`, 'get', 'json');
+}

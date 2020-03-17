@@ -53,13 +53,19 @@ app.get('/auth/google/callback',
         req.session.name = req.user.profile.displayName;
         req.session.pic = req.user.profile._raw;
         res.redirect('/');
+        //res.sendStatus(200);
     }
 );
 app.get('/logout', (req, res) => {
     req.logout();
-
+    //req.session.destroy();
     req.session = null;
     res.redirect('/');
+});
+app.get('/ap/user', (req, res) => {
+    //console.log(req.session);
+    console.log("ap/user reached");
+    res.send(req.session);
 });
 
 //pug template setting
@@ -102,7 +108,9 @@ app.get('/api/:productId', function (req, res) {
 
 app.get('/card', function (req, res) {
     console.log('card');
-    res.send('card.html');
+    // res.send('card.html');
+    res.send(req.session);
+
 });
 
 //buy now page routing setup
