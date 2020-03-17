@@ -13,7 +13,10 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
                 |  WISHLIST
     .col-2
     .col-3#name
-    .col-1#signout
+    .col-1
+        a.navbar-brand.text-dark.text-right(id='login' style='cursor:pointer' href='/logout' )
+            span.glyphicon.glyphicon-user
+                |  LOGOUT
     .col-1
         img.align-left(src='./images/searchIcon.png' width='25px' height='25px' id='searchIcon' style='cursor:pointer')
     .col-1.text-right
@@ -23,4 +26,6 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-dark.bg-white
 
 
     .col-1.text-centre()
-        a.navbar-brand.text-dark.text-right(id='login' style='cursor:pointer' class="g-signin2" data-onsuccess="onSignIn")
+        a.navbar-brand.text-dark.text-right(id='login' style='cursor:pointer' href='/auth/google' )
+            span.glyphicon.glyphicon-user
+                |  LOGIN

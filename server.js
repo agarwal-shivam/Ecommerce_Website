@@ -12,6 +12,56 @@ const wishlistRoutes = require('./routes/wishlistRoutes.js');
 app.use(cartRoutes);
 app.use(wishlistRoutes);
 
+//OAUth
+const passport = require('passport');
+const auth = require('./auth.js'),
+    cookieParser = require('cookie-parser'),
+    cookieSession = require('cookie-session');
+auth(passport);//error
+app.use(cookieSession({
+    name: 'session',
+    keys: ['123']
+}));
+app.use(cookieParser());
+app.use(passport.initialize());
+app.get('/', (req, res) => {
+
+    if (req.session.token) {
+        res.cookie('token', req.session.token);
+        res.cookie('name', req.session.name)
+        res.cookie('pic', req.session.pic)
+        console.log('home session cookie set ');
+        res.render('index', { data });
+    } else {
+        res.cookie('token', '')
+        res.cookie('name', '')
+        res.cookie('pic', '')
+        console.log('home session cookie not set');
+        res.render('index', { data });
+    }
+});
+app.get('/auth/google', passport.authenticate('google', {
+    scope: ['https://www.googleapis.com/auth/userinfo.profile']
+}));
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/'
+    }),
+    (req, res) => {
+        //console.log(req);
+        req.session.token = req.user.token;
+        req.session.name = req.user.profile.displayName;
+        req.session.pic = req.user.profile._raw;
+        res.redirect('/');
+    }
+);
+app.get('/logout', (req, res) => {
+    req.logout();
+
+    req.session = null;
+    res.redirect('/');
+});
+
 //pug template setting
 app.set('view engine', 'pug');
 app.set('views', 'views');
@@ -38,10 +88,10 @@ app.get('/api/home', (req, res) => {
 })
 
 //homepage routing setup
-app.get('/', (req, res) => {
-    console.log('home');
-    res.render('index', { data });
-});
+// app.get('/', (req, res) => {
+//     console.log('home');
+//     res.render('index', { data });
+// });
 
 //product page routing setup
 app.get('/api/:productId', function (req, res) {
