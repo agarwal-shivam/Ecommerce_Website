@@ -55,6 +55,12 @@ app.get('/auth/google/callback',
         res.redirect('/');
     }
 );
+
+app.get('/api/user', (req, res) => {
+    // modify the req.session to return only what is needed on the FE
+    res.send(req.session)
+});
+
 app.get('/logout', (req, res) => {
     req.logout();
 
