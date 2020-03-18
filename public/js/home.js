@@ -6,29 +6,36 @@ $(document).ready(async () => {
   let populateDATA = (fetchedData) => {
     const keysArray = Object.keys(fetchedData);
     let html = `<div class='row'>`;
+    //let html = `<table id="table">`
     for (let i = 0; i < Object.keys(fetchedData).length; i++) {
       let pathFetch = fetchedData[keysArray[i]]['path'];
       let nameFetch = fetchedData[keysArray[i]]['name'];
       let priceFetch = fetchedData[keysArray[i]]['price'];
       let idFetch = fetchedData[keysArray[i]]['id'];
       let sellerFetch = fetchedData[keysArray[i]]['sold_by'];
+      // html += `<th><tr><td><img src='${pathFetch}' id="${idFetch}" onclick='openProductDescription(id)' style='width:200px;height:200px;cursor:pointer'> </td></tr>`;
+      // html += `<tr><td><h5>${nameFetch}</h5></td></tr>`;
+      // html += `<tr><td><p>${sellerFetch}   ₹${priceFetch}</p></td></tr></th>`;
+
+
       html += `<div class='col-6'>`
       html += `<div class='card border-0'>
-                <img class='card-img-center' src='${pathFetch}' id="${idFetch}" onclick='openProductDescription(id)' style='width:200px;height:200px;cursor:pointer'> 
-                <div class='card-body'>
-                <h5 class='card-title text-left'>${nameFetch}</h5>
-                <div class='row'>
-                <div class='col'>
-                <p class='card-text text-left' style='color:gray'>${sellerFetch}</p>
-                </div>
-                <div class='col'><div class='row'>
-                <h6 class='card-text text-right'>₹${priceFetch}</h6> 
-                </div> 
-                <div class='row'>
-                 <img src='./images/cartImage.jpg' id=${idFetch} value=${idFetch} onclick='addToCartData(id)' width='30px' height='30px' style='cursor:pointer'></img>
-                 </div> </div> </div> </div> </div> </div>`
+                 <img class='card-img-center' src='${pathFetch}' id="${idFetch}" onclick='openProductDescription(id)' style='width:200px;height:200px;cursor:pointer'> 
+                 <div class='card-body'>
+                 <h5 class='card-title text-left'>${nameFetch}</h5>
+                 <div class='row'>
+                 <div class='col'>
+                 <p class='card-text text-left' style='color:gray'>${sellerFetch}</p>
+                 </div>
+                 <div class='col'><div class='row'>
+                 <h6 class='card-text text-right'>₹${priceFetch}</h6> 
+                 </div> 
+                 <div class='row'>
+                  <img src='./images/cartImage.jpg' id=${idFetch} value=${idFetch} onclick='addToCartData(id)' width='30px' height='30px' style='cursor:pointer'></img>
+                  </div> </div> </div> </div> </div> </div>`
     }
     html += `</div>`
+    //html += `</table>`
     $("#dataDiv2").append(html);
   }
   await populateDATA(fetchedData);

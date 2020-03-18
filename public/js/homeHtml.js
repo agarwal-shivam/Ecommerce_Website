@@ -1,7 +1,7 @@
 $(document).ready(async () => {
   const page = await getPage('home');
   await populatePage(page);
-  const userDataq = login1().then((result) => {
+  const userDataq = login().then((result) => {
     if (result.passport) {
       console.log(result.passport.user.profile._json.name);
       console.log(result.passport.user.profile._json.picture);
@@ -18,8 +18,8 @@ $(document).ready(async () => {
   });
 });
 //login function
-function login1() {
-  console.log("login1");
-  return makeAPICall(`/ap/user`, 'get', 'json');
+function login() {
+  console.log("login");
+  return makeAPICall(`/api/user`, 'get', 'json');
 }
 

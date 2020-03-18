@@ -62,9 +62,9 @@ app.get('/logout', (req, res) => {
     req.session = null;
     res.redirect('/');
 });
-app.get('/ap/user', (req, res) => {
+app.get('/api/user', (req, res) => {
     //console.log(req.session);
-    console.log("ap/user reached");
+    //console.log("ap/user reached");
     res.send(req.session);
 });
 

@@ -28,7 +28,7 @@ const getData = dataName => {
 };
 
 //login function
-async function login() {
-  //await makeAPICall(`/auth/google`, 'get');
-  await makeAPICall(`/ap/user`, 'get', 'json');
-}
+// async function login() {
+//   //await makeAPICall(`/auth/google`, 'get');
+//   await makeAPICall(`/api/user`, 'get', 'json');
+// }
